@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+<!-- template inheritence -->
+
+{% block title %} Home {% endblock title %} 
+{% block style %} 
+.carous-cap{background-color: rgba(0,0,0,.5); border:none; border-radius: 100px; 
+}
+.emp-details{ display:flex; flex-direction:column; gap:30px; margin: 20px auto;
+width: 50%; 
+} 
+.user{ display:flex; justify-content: space-between; padding:0
+15px;
+} 
+.employee{
+  text-align:center;
+  margin-top : 80px;
+}
+ {% endblock style %} {% block body %}
+
+<div class="user">
+  Welcome {{request.user}}
+  <a href="/logout"> LOGOUT </a>
+</div>
+
+<div class="container-fluid px-0">
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://source.unsplash.com/1200x400/?company,buildings"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block carous-cap">
+          <h5>Nav-Benj & Company Limited</h5>
+          <p>
+            Our Company is well known for Making Glorious Design in the global
+            Market.<br />
+            Making You the people happy all around the world is our primary
+            focus.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://source.unsplash.com/1200x400/?company,employees"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block carous-cap">
+          <h5>35k employees Works under our Company</h5>
+          <p>
+            We are Hiring Employees from all over the World. <br />
+            Empolyees are happy with the job and admires to our Company
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://source.unsplash.com/1200x400/?company,testimonials"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block carous-cap">
+          <h5>Very Charming workspace to work together</h5>
+          <p>
+            Working under one roof. <br />
+            Our Compary facilitate many things to the Employee and they feel
+            safe and secure in the building.
+          </p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+{% comment %}
+<p>
+  variable1 value is equals to <b>{{var1}}</b><br />
+  variabel2 value is equals to <b>{{var2}}</b>
+</p>
+{% endcomment %}
+<hr />
+<section class="employee">
+  <h1>Office Employee system Management!</h1>
+  <div class="emp-details">
+    <a class="btn btn-primary" href="/all_emp" role="button"
+      >See all Employees</a
+    >
+    <a class="btn btn-primary" href="/add_emp" role="button">Add Employees</a>
+    <a class="btn btn-primary" href="/remove_emp" role="button"
+      >Remove Employee</a
+    >
+    <a class="btn btn-primary" href="/filter_emp" role="button"
+      >Filter Employees</a
+    >
+  </div>
+</section>
+
+{% endblock body %}

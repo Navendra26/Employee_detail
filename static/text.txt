@@ -1,0 +1,2 @@
+this is a text and this is a static file which is public 
+(anyone can acess this text when go through its relative path)

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}  <!-- template inheritence -->
+
+{% block title %} Contact {% endblock title %}
+
+{% block body %}
+<div class='container-fluid px-0'>
+  <img src="https://source.unsplash.com/1200x400/?phone,contact" class="d-block w-100 " alt="water_imag"/>
+</div>
+<div class="container">
+  <h1 class='text-center'>Contact Us<h1>
+  <form method="post" action="/contact">
+    {% csrf_token %}   {% comment %} for ensuring that the form is submitted by this site only by generating unique web token every time when it submitted  {% endcomment %}
+    <div class="mb-3">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label" >Email address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label" >Your Suggetion/problem</label>
+      <textarea class="form-control" id="desc" name="desc" rows="3" placeholder="desc" ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="contactNumber" class="form-label" >Contact Number</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your contact number">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
+
+{% endblock body %}
